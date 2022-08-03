@@ -12,7 +12,7 @@ class [[eosio::contract]] example : public contract {
     {
         // the `set_action_return_value` intrinsic is invoked automatically
         if (message == "hello"_n) return "Validation has passed.";
-        return "Input param `name` not equal to `hello`.";
+        return "Input param `message` not equal to `hello`.";
     }
 
     using returnvalue_action = action_wrapper<"returnvalue"_n, &example::returnvalue>;
