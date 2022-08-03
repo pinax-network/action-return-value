@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "license": "MIT",
+  "name": "action-return-value",
+  "version": "1.0.0",
+  "description": "EOSIO Action Return Value",
+  "main": "index.js",
+  "repository": "git@github.com:EOS-Nation/action-return-value.git",
+  "author": "Denis Carriere <denis@eosnation.io>",
+  "scripts": {
+    "start": "bun index.ts"
+  },
+  "dependencies": {
+    "@greymass/eosio": "0.6.x"
+  },
+  "devDependencies": {
+    "@types/node": "*",
+    "typescript": "*"
+  }
+}
