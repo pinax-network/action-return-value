@@ -1,6 +1,11 @@
 import { Transaction, Action, SignedTransaction, ABI } from "@greymass/eosio"
 import { rpc, ACCOUNT, ACTOR, PRIVATE_KEY } from "./config";
 
+export function hex_to_string( hex: string )
+{
+    return Buffer.from(hex, "hex").toString("utf-8").replace("\x16", "");
+}
+
 export const abi = ABI.from({
     version: 'eosio::abi/1.1',
     structs: [
