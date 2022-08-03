@@ -1,6 +1,5 @@
-import { Transaction, Struct, Name, Action, SignedTransaction, ABI } from "@greymass/eosio"
+import { Transaction, Action, SignedTransaction, ABI } from "@greymass/eosio"
 import { rpc, ACCOUNT, ACTOR, PRIVATE_KEY } from "./config";
-
 
 export const abi = ABI.from({
     version: 'eosio::abi/1.1',
