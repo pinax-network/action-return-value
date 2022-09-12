@@ -1,4 +1,2 @@
-*.abi
-*.wasm
 node_modules
 .env
