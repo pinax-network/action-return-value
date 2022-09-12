@@ -1,5 +1,10 @@
-import { push_return_value, hex_to_string } from "./src/utils"
-import { ACCOUNT, MESSAGE } from "./src/config"
+import { push_return_value } from "../src/utils"
+import { ACCOUNT, MESSAGE } from "../src/config"
+
+export function hex_to_string( hex: string )
+{
+    return Buffer.from(hex, "hex").toString("utf-8").replace("\x16", "");
+}
 
 console.log({ ACCOUNT, MESSAGE });
 const { transaction_id, processed } = await push_return_value(MESSAGE);

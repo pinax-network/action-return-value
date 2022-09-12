@@ -1,31 +1,8 @@
-import { Transaction, Action, SignedTransaction, ABI } from "@greymass/eosio"
+import fs from "node:fs";
+import { Transaction, Action, SignedTransaction, ABI, Serializer } from "@greymass/eosio"
 import { rpc, ACCOUNT, ACTOR, PRIVATE_KEY } from "./config";
 
-export function hex_to_string( hex: string )
-{
-    return Buffer.from(hex, "hex").toString("utf-8").replace("\x16", "");
-}
-
-export const abi = ABI.from({
-    version: 'eosio::abi/1.1',
-    structs: [
-        {
-            name: 'returnvalue',
-            base: '',
-            fields: [{
-                name: "message",
-                type: "name"
-            }]
-        }
-    ],
-    actions: [
-        {
-            name: 'returnvalue',
-            type: 'returnvalue',
-            ricardian_contract: ""
-        }
-    ],
-})
+export const abi = ABI.from(JSON.parse(fs.readFileSync("example.abi", {encoding: "utf-8"})))
 
 export async function push_return_value( message: string ) {
     const action = Action.from({
@@ -33,6 +10,16 @@ export async function push_return_value( message: string ) {
         account: ACCOUNT,
         name: 'returnvalue',
         data: { message },
+    }, abi)
+    return push_transaction( [action] );
+}
+
+export async function push_custom_value( data: {message: string, extra: string} ) {
+    const action = Action.from({
+        authorization: [ { actor: ACTOR, permission: 'active' } ],
+        account: ACCOUNT,
+        name: 'customvalue',
+        data,
     }, abi)
     return push_transaction( [action] );
 }

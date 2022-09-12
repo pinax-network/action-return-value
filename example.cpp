@@ -6,6 +6,11 @@ class [[eosio::contract]] example : public contract {
     public:
     using contract::contract;
 
+    struct custom {
+        std::string      message;
+        std::string      extra;
+    };
+
     // Checks the input param `message` and returns serialized std::string instance.
     [[eosio::action]]
     std::string returnvalue( const name message )
@@ -15,5 +20,24 @@ class [[eosio::contract]] example : public contract {
         return "Input param `message` not equal to `hello`.";
     }
 
+    [[eosio::action]]
+    example::custom customvalue( const std::string message )
+    {
+        return custom{message, "extra message"};
+    }
+
+    [[eosio::action]]
+    uint64_t numbervalue( const name message )
+    {
+        return 123;
+    }
+
+    [[eosio::action]]
+    name namevalue( const name message )
+    {
+        return message;
+    }
+
     using returnvalue_action = action_wrapper<"returnvalue"_n, &example::returnvalue>;
+    using customvalue_action = action_wrapper<"customvalue"_n, &example::customvalue>;
 };
