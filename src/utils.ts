@@ -4,22 +4,17 @@ import { rpc, ACCOUNT, ACTOR, PRIVATE_KEY } from "./config";
 
 export const abi = ABI.from(JSON.parse(fs.readFileSync("example.abi", {encoding: "utf-8"})))
 
-export async function push_return_value( message: string ) {
-    const action = Action.from({
-        authorization: [ { actor: ACTOR, permission: 'active' } ],
-        account: ACCOUNT,
-        name: 'returnvalue',
-        data: { message },
-    }, abi)
-    return push_transaction( [action] );
+export function hex_to_string( hex: string )
+{
+    return Buffer.from(hex, "hex").toString("utf-8").replace("\x16", "");
 }
 
-export async function push_custom_value( data: {message: string, extra: string} ) {
+export async function push_action( name: string, message: string ) {
     const action = Action.from({
         authorization: [ { actor: ACTOR, permission: 'active' } ],
         account: ACCOUNT,
-        name: 'customvalue',
-        data,
+        name,
+        data: { message },
     }, abi)
     return push_transaction( [action] );
 }

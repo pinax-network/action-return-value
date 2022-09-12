@@ -1,6 +1,6 @@
 import { push_action, hex_to_string } from "../src/utils"
 
-const action = "returnvalue"
+const action = "namevalue"
 const message = "hello";
 console.log({ action, message });
 const { transaction_id, processed } = await push_action(action, "hello");
