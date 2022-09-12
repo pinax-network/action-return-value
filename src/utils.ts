@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import { Transaction, Action, SignedTransaction, ABI, Serializer } from "@greymass/eosio"
-import { rpc, ACCOUNT, ACTOR, PRIVATE_KEY } from "./config";
+import { rpc, ACCOUNT, ACTOR, PRIVATE_KEY } from "./config.js";
 
 export const abi = ABI.from(JSON.parse(fs.readFileSync("example.abi", {encoding: "utf-8"})))
 

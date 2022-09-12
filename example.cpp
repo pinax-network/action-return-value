@@ -13,23 +13,21 @@ class [[eosio::contract]] example : public contract {
 
     // Checks the input param `message` and returns serialized std::string instance.
     [[eosio::action]]
-    std::string returnvalue( const name message )
+    std::string stringvalue( const std::string message )
     {
-        // the `set_action_return_value` intrinsic is invoked automatically
-        if (message == "hello"_n) return "Validation has passed.";
-        return "Input param `message` not equal to `hello`.";
+        return message;
     }
 
     [[eosio::action]]
-    example::custom customvalue( const std::string message )
+    example::custom customvalue( const example::custom message )
     {
-        return custom{message, "extra message"};
+        return message;
     }
 
     [[eosio::action]]
-    uint64_t numbervalue( const name message )
+    uint64_t numbervalue( const uint64_t message )
     {
-        return 123;
+        return message;
     }
 
     [[eosio::action]]
@@ -39,11 +37,8 @@ class [[eosio::contract]] example : public contract {
     }
 
     [[eosio::action]]
-    std::vector<std::string> vectorvalue( const std::string message )
+    std::vector<std::string> vectorvalue( const std::vector<std::string> message )
     {
-        return {message, "second", "third"};
+        return message;
     }
-
-    using returnvalue_action = action_wrapper<"returnvalue"_n, &example::returnvalue>;
-    using customvalue_action = action_wrapper<"customvalue"_n, &example::customvalue>;
 };

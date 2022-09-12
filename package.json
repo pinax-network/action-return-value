@@ -2,6 +2,10 @@
   "private": true,
   "license": "MIT",
   "name": "action-return-value",
+  "type": "module",
+  "engines": {
+    "node": ">=12"
+  },
   "version": "1.0.0",
   "description": "EOSIO Action Return Value",
   "main": "index.js",
@@ -11,10 +15,12 @@
     "start": "bun index.ts"
   },
   "dependencies": {
-    "@greymass/eosio": "0.6.x"
+    "@greymass/eosio": "0.6.x",
+    "dotenv": "^16.0.2"
   },
   "devDependencies": {
     "@types/node": "*",
+    "ts-node": "^10.9.1",
     "typescript": "*"
   }
 }

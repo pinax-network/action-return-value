@@ -1,4 +1,5 @@
 import { APIClient, PrivateKey } from "@greymass/eosio"
+import 'dotenv/config'
 
 // required
 if ( !process.env.PRIVATE_KEY ) throw new Error("[env.PRIVATE_KEY] is required");

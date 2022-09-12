@@ -1,4 +1,4 @@
-import { push_action, hex_to_string } from "../src/utils"
+import { push_action, hex_to_string } from "../src/utils.js"
 
 const action = "vectorvalue"
 const message = "hello";

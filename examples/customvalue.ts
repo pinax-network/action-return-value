@@ -1,8 +1,9 @@
-import { push_action, hex_to_string } from "../src/utils"
+import { push_action, hex_to_string } from "../src/utils.js"
 
 const action = "customvalue"
 const message = "hello";
 console.log({ action, message });
+
 const { transaction_id, processed } = await push_action(action, "hello");
 
 for ( const { return_value_hex_data } of processed.action_traces ) {
