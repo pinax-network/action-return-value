@@ -9,12 +9,12 @@ export function hex_to_string( hex: string )
     return Buffer.from(hex, "hex").toString("utf-8").replace("\x16", "");
 }
 
-export async function push_action( name: string, message: string ) {
+export async function push_action( name: string, data: any ) {
     const action = Action.from({
         authorization: [ { actor: ACTOR, permission: 'active' } ],
         account: ACCOUNT,
         name,
-        data: { message },
+        data,
     }, abi)
     return push_transaction( [action] );
 }

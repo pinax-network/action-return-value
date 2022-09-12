@@ -1,33 +1,35 @@
 #include <eosio/eosio.hpp>
 
 using namespace eosio;
+using namespace std;
 
 class [[eosio::contract]] example : public contract {
     public:
     using contract::contract;
 
     struct custom {
-        std::string      message;
-        std::string      extra;
+        name        message;
+        string      extra;
+        uint64_t    number;
     };
 
-    // Checks the input param `message` and returns serialized std::string instance.
+    // Checks the input param `message` and returns serialized string instance.
     [[eosio::action]]
-    std::string stringvalue( const std::string message )
+    string stringvalue( const string message )
     {
         return message;
     }
 
     [[eosio::action]]
-    example::custom customvalue( const example::custom message )
+    example::custom customvalue( const name message, const string extra, const uint64_t number )
     {
-        return message;
+        return example::custom{message, extra, number};
     }
 
     [[eosio::action]]
-    uint64_t numbervalue( const uint64_t message )
+    uint64_t numbervalue( const uint64_t number )
     {
-        return message;
+        return number;
     }
 
     [[eosio::action]]
@@ -37,7 +39,7 @@ class [[eosio::contract]] example : public contract {
     }
 
     [[eosio::action]]
-    std::vector<std::string> vectorvalue( const std::vector<std::string> message )
+    vector<string> vectorvalue( const vector<string> message )
     {
         return message;
     }

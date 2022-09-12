@@ -9,11 +9,15 @@
             "fields": [
                 {
                     "name": "message",
-                    "type": "string"
+                    "type": "name"
                 },
                 {
                     "name": "extra",
                     "type": "string"
+                },
+                {
+                    "name": "number",
+                    "type": "uint64"
                 }
             ]
         },
@@ -23,7 +27,15 @@
             "fields": [
                 {
                     "name": "message",
-                    "type": "custom"
+                    "type": "name"
+                },
+                {
+                    "name": "extra",
+                    "type": "string"
+                },
+                {
+                    "name": "number",
+                    "type": "uint64"
                 }
             ]
         },
@@ -42,7 +54,7 @@
             "base": "",
             "fields": [
                 {
-                    "name": "message",
+                    "name": "number",
                     "type": "uint64"
                 }
             ]
