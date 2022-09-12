@@ -56,6 +56,16 @@
                     "type": "name"
                 }
             ]
+        },
+        {
+            "name": "vectorvalue",
+            "base": "",
+            "fields": [
+                {
+                    "name": "message",
+                    "type": "string"
+                }
+            ]
         }
     ],
     "actions": [
@@ -78,27 +88,14 @@
             "name": "returnvalue",
             "type": "returnvalue",
             "ricardian_contract": ""
+        },
+        {
+            "name": "vectorvalue",
+            "type": "vectorvalue",
+            "ricardian_contract": ""
         }
     ],
     "tables": [],
     "ricardian_clauses": [],
-    "variants": [],
-    "action_results": [
-        {
-            "name": "customvalue",
-            "result_type": "custom"
-        },
-        {
-            "name": "namevalue",
-            "result_type": "name"
-        },
-        {
-            "name": "numbervalue",
-            "result_type": "uint64"
-        },
-        {
-            "name": "returnvalue",
-            "result_type": "string"
-        }
-    ]
+    "variants": []
 }

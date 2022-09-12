@@ -38,6 +38,12 @@ class [[eosio::contract]] example : public contract {
         return message;
     }
 
+    [[eosio::action]]
+    std::vector<std::string> vectorvalue( const std::string message )
+    {
+        return {message, "second", "third"};
+    }
+
     using returnvalue_action = action_wrapper<"returnvalue"_n, &example::returnvalue>;
     using customvalue_action = action_wrapper<"customvalue"_n, &example::customvalue>;
 };
