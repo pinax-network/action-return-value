@@ -1,5 +1,5 @@
-import { Transaction, SignedTransaction, Serializer, AnyAction, Action } from "@wharfkit/session"
-import { abi, rpc, PRIVATE_KEY, authorization } from "./config.js";
+import { Transaction, SignedTransaction, Serializer, Action } from "@wharfkit/session"
+import { abi, rpc } from "./config.js";
 
 export function hex_to_string( hex: string ) {
     return Buffer.from(hex, "hex").toString("utf-8").replace("\x16", "");
@@ -7,6 +7,7 @@ export function hex_to_string( hex: string ) {
 
 export function decode(return_value_hex_data: string, type: any) {
     const decoded = Serializer.decode({data: return_value_hex_data, type, abi});
+    if ( decoded.toJSON ) return decoded.toJSON();
     if ( typeof decoded === "string" ) return decoded;
     if ( typeof decoded === "number" ) return decoded;
     if ( Array.isArray(decoded) ) return decoded;
@@ -26,16 +27,15 @@ export function create_action( name: string, data: any ) {
     return Action.from({
         account: "actions.eosn",
         name,
-        authorization,
+        authorization: [],
         data,
     }, abi);
 }
 
-export async function compute_transaction( action: Action ) {
+export async function read_only( action: Action ) {
     const info = await rpc.v1.chain.get_info();
     const header = info.getTransactionHeader();
     const transaction = Transaction.from({ ...header, actions: [action] });
-    const signatures = [PRIVATE_KEY.signDigest(transaction.signingDigest(info.chain_id))];
-    const signedTransaction = SignedTransaction.from({ ...transaction, signatures });
-    return rpc.v1.chain.compute_transaction(signedTransaction);
+    const signedTransaction = SignedTransaction.from({ ...transaction });
+    return rpc.v1.chain.send_read_only_transaction(signedTransaction);
 }
