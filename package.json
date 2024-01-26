@@ -1,26 +1,14 @@
 {
   "private": true,
-  "license": "MIT",
-  "name": "action-return-value",
   "type": "module",
-  "engines": {
-    "node": ">=12"
-  },
-  "version": "1.0.0",
-  "description": "EOSIO Action Return Value",
-  "main": "index.js",
-  "repository": "git@github.com:EOS-Nation/action-return-value.git",
-  "author": "Denis Carriere <denis@eosnation.io>",
   "scripts": {
-    "start": "bun index.ts"
-  },
-  "dependencies": {
-    "@greymass/eosio": "0.6.x",
-    "dotenv": "^16.0.2"
+    "build": "cdt-cpp example.cpp",
+    "test": "node *.spec.js"
   },
   "devDependencies": {
-    "@types/node": "*",
-    "ts-node": "^10.9.1",
-    "typescript": "*"
+    "@proton/vert": "latest"
+  },
+  "dependencies": {
+    "@wharfkit/antelope": "^1.0.5"
   }
 }

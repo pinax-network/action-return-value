@@ -1,5 +1,5 @@
 import { push_action } from "../src/utils.js"
-import { Serializer } from "@greymass/eosio"
+import { Serializer } from "@wharfkit/antelope"
 
 function decode(data: string) {
     return Serializer.decode({data, type: 'string'}).toString()

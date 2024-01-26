@@ -22,7 +22,7 @@ ENDPOINT="https://jungle4.api.eosnation.io"
 ## Testing
 
 ```bash
-$ bun install
+$ npm install install
 $ bun index.ts
 [0.11ms] ".env"
 { ACCOUNT: "abcabcabc333", MESSAGE: "hello" }

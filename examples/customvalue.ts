@@ -1,6 +1,5 @@
 import { push_action } from "../src/utils.js"
-import { Serializer, ABI } from "@greymass/eosio"
-
+import { Serializer, ABI } from "@wharfkit/antelope"
 
 const abi = ABI.from({
     structs: [

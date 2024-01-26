@@ -1,5 +1,5 @@
 import { push_action } from "../src/utils.js"
-import { Serializer, UInt64 } from "@greymass/eosio"
+import { Serializer, UInt64 } from "@wharfkit/antelope"
 
 function decode(data: string) {
     return Serializer.decode({data, type: UInt64}).toString()
