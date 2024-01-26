@@ -2,13 +2,15 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "cdt-cpp example.cpp",
-    "test": "node *.spec.js"
-  },
-  "devDependencies": {
-    "@proton/vert": "latest"
+    "build": "cdt-cpp actions.cpp",
+    "test": "bun test"
   },
   "dependencies": {
-    "@wharfkit/antelope": "^1.0.5"
+    "@wharfkit/session": "latest"
+  },
+  "devDependencies": {
+    "@proton/vert": "latest",
+    "typescript": "latest",
+    "bun-types": "latest"
   }
 }

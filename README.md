@@ -1,35 +1,26 @@
-# EOSIO Action Return Value
+# Antelope `Action Return Value`
 
 ## CDT
 
-- [blanc++ v0.12.0](https://github.com/haderech/blanc)
+- [Antelope CDT](https://github.com/AntelopeIO/cdt)
 
 ## Quickstart
 
 ```bash
-$ blanc++ exxample.cpp
-$ cleos set contract <ACCOUNT> . example.wasm example.abi
-```
+$ npm run build
 
-## .env
-
-```env
-ACCOUNT="<ACCOUNT>"
-PRIVATE_KEY="<EOSIO PRIVATE KEY>"
-ENDPOINT="https://jungle4.api.eosnation.io"
+> build
+> cdt-cpp actions.cpp
 ```
 
 ## Testing
 
 ```bash
-$ npm install install
-$ bun index.ts
-[0.11ms] ".env"
-{ ACCOUNT: "abcabcabc333", MESSAGE: "hello" }
-{ value: "Validation has passed.", return_value_hex_data: "1656616c69646174696f6e20686173207061737365642e", transaction_id: "3fd14f01ef3d0f94241fa9a8d29a7c6987fff0b34979f8b79618f7a9add9ca34" }
+$ npm install
+$ bun test
 ```
 
-## Processed Transaction
+## Computed Transaction
 
 ```json
 {

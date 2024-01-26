@@ -3,7 +3,7 @@
 using namespace eosio;
 using namespace std;
 
-class [[eosio::contract]] example : public contract {
+class [[eosio::contract]] actions : public contract {
     public:
     using contract::contract;
 
@@ -21,9 +21,9 @@ class [[eosio::contract]] example : public contract {
     }
 
     [[eosio::action]]
-    example::custom customvalue( const name message, const string extra, const uint64_t number )
+    actions::custom customvalue( const name message, const string extra, const uint64_t number )
     {
-        return example::custom{message, extra, number};
+        return actions::custom{message, extra, number};
     }
 
     [[eosio::action]]
