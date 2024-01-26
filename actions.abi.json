@@ -1,0 +1,135 @@
+{
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT ",
+    "version": "eosio::abi/1.2",
+    "types": [],
+    "structs": [
+        {
+            "name": "custom",
+            "base": "",
+            "fields": [
+                {
+                    "name": "message",
+                    "type": "name"
+                },
+                {
+                    "name": "extra",
+                    "type": "string"
+                },
+                {
+                    "name": "number",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "customvalue",
+            "base": "",
+            "fields": [
+                {
+                    "name": "message",
+                    "type": "name"
+                },
+                {
+                    "name": "extra",
+                    "type": "string"
+                },
+                {
+                    "name": "number",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "namevalue",
+            "base": "",
+            "fields": [
+                {
+                    "name": "message",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "numbervalue",
+            "base": "",
+            "fields": [
+                {
+                    "name": "number",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "stringvalue",
+            "base": "",
+            "fields": [
+                {
+                    "name": "message",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "vectorvalue",
+            "base": "",
+            "fields": [
+                {
+                    "name": "message",
+                    "type": "string[]"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "name": "customvalue",
+            "type": "customvalue",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "namevalue",
+            "type": "namevalue",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "numbervalue",
+            "type": "numbervalue",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "stringvalue",
+            "type": "stringvalue",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "vectorvalue",
+            "type": "vectorvalue",
+            "ricardian_contract": ""
+        }
+    ],
+    "tables": [],
+    "ricardian_clauses": [],
+    "variants": [],
+    "action_results": [
+        {
+            "name": "customvalue",
+            "result_type": "custom"
+        },
+        {
+            "name": "namevalue",
+            "result_type": "name"
+        },
+        {
+            "name": "numbervalue",
+            "result_type": "uint64"
+        },
+        {
+            "name": "stringvalue",
+            "result_type": "string"
+        },
+        {
+            "name": "vectorvalue",
+            "result_type": "string[]"
+        }
+    ]
+}

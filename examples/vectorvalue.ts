@@ -1,20 +1,9 @@
-import { AnyAction } from "@wharfkit/session"
-import { compute_transaction, decode } from "../src/utils.js"
-import { authorization } from "../src/config.js"
+import { compute_transaction, create_action, decode } from "../src/utils.js"
 
-const action: AnyAction = {
-    account: "actions.eosn",
-    name: "vectorvalue",
-    authorization,
-    data: {
-        message: ["one", "two", "three"]
-    },
-}
-
-const { processed, transaction_id } = await compute_transaction(action);
-
-for ( const { return_value_hex_data } of processed.action_traces ) {
-    console.log({ return_value_hex_data, transaction_id });
-    const value = decode(return_value_hex_data, "string[]");
-    console.log({ value });
-}
+const name = "vectorvalue";
+const data = { message: ["one", "two", "three"] };
+const action = create_action(name, data);
+const { processed } = await compute_transaction(action);
+const { return_value_hex_data } = processed.action_traces[0];
+const value = decode(return_value_hex_data, "string[]");
+console.log({ name, data, return_value_hex_data, value });
