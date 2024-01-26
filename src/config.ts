@@ -6,3 +6,4 @@ export const ACTOR = "actions.eosn";
 export const PERMISSION = "actions";
 export const rpc = new APIClient({ url: Chains.EOS.url });
 export const authorization = [{ actor: ACTOR, permission: PERMISSION }];
+export const abi = (await rpc.v1.chain.get_abi(ACTOR)).abi

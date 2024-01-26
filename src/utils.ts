@@ -1,6 +1,5 @@
 import { Transaction, SignedTransaction, Serializer, AnyAction, Action } from "@wharfkit/session"
-import { rpc, PRIVATE_KEY, authorization } from "./config.js";
-import { abi } from "./abi.js";
+import { abi, rpc, PRIVATE_KEY, authorization } from "./config.js";
 
 export function hex_to_string( hex: string ) {
     return Buffer.from(hex, "hex").toString("utf-8").replace("\x16", "");
